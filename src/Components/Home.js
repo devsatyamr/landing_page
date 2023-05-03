@@ -1,10 +1,11 @@
 import React from "react";
+// import { Link } from "react-router-dom";
 import BannerBackground from "../Assets/Ellipse 2.png";
 import BannerImage from "../Assets/61d2f85b92b57c0004c64745.png";
 import Navbar from "./Navbar";
 import { FiArrowRight } from "react-icons/fi";
 
-const Home = () => {
+const Home = (props) => {
   return (
     <div className="home-container">
       <Navbar />
@@ -13,6 +14,7 @@ const Home = () => {
           <img src={BannerBackground} alt="" />
         </div>
         <div className="home-text-section">
+        <h2 style={{color: "red"}}>{props.name ? `Welcome Aboard -- ${props.name}` : "Login please!!"}</h2>
           <h1 className="primary-heading">
             CHOOSE YOUR WORLD
           </h1>

@@ -1,20 +1,36 @@
-import "./App.css";
+import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import Home from "./Components/Home";
-import About from "./Components/About";
-import Work from "./Components/Work";
-import Testimonial from "./Components/Testimonial";
-import Contact from "./Components/Contact";
-import Footer from "./Components/Footer";
+import Login from "./Components/Login";
+import Signup from "./Components/Signup";
+import About from "./Components/About"
+import { auth } from "./Components/Firebase";
+
+import "./App.css";
 
 function App() {
+  const [userName, setUserName] = useState("");
+
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUserName(user.displayName);
+      } else setUserName("");
+    });
+  }, []);
+
   return (
     <div className="App">
-      <Home />
-      <About />
-      <Work />
-      <Testimonial />
-      <Contact />
-      <Footer />
+      <Router>
+        <Routes>
+          <Route path="/home" element={<Home name={userName} />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Signup />} />
+          <Route path="/about" element={<About />} />
+          
+        </Routes>
+      </Router>
     </div>
   );
 }

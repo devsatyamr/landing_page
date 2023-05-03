@@ -1,6 +1,6 @@
 import React from "react";
 import ProfilePic from "../Assets/Devsatyam.jpeg";
-import ProfilePic1 from "../Assets/Suvadra.jpg";
+import ProfilePic1 from "../Assets/Suvadra2.jpg";
 import { AiFillStar } from "react-icons/ai";
 
 const Testimonial = () => {

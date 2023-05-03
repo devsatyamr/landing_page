@@ -17,6 +17,10 @@ import CommentRoundedIcon from "@mui/icons-material/CommentRounded";
 import PhoneRoundedIcon from "@mui/icons-material/PhoneRounded";
 import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
 
+import { FiLogIn } from "react-icons/fi";
+import {  SignpostRounded } from "@mui/icons-material";
+import {  } from "firebase/auth";
+
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const menuOptions = [
@@ -40,6 +44,14 @@ const Navbar = () => {
       text: "Cart",
       icon: <ShoppingCartRoundedIcon />,
     },
+    {
+      text: "Login",
+      icon: <FiLogIn />,
+    },
+    {
+      text: "SignUp",
+      icon: <SignpostRounded />,
+    },
   ];
   return (
     <nav>
@@ -49,9 +61,10 @@ const Navbar = () => {
       </div>
       <div className="navbar-links-container">
         <a href="">Home</a>
-        <a href="">About</a>
         <a href="">Feedback</a>
         <a href="">Contact</a>
+        <a href="/login">Log In</a>
+        <a href="/">Sign Up</a>
         <a href="">
           <BsCart2 className="navbar-cart-icon" />
         </a>
